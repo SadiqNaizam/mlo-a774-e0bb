@@ -81,18 +81,18 @@ const SourcesPieChart: React.FC = () => {
                      <div className="text-muted-foreground justify-self-end">{source.percentage}%</div>
                 </div>
             ))}
-             <ShadTooltipProvider>
+             <TooltipProvider>
                 <ShadTooltip>
-                    <ShadTooltipTrigger asChild>
+                    <TooltipTrigger asChild>
                          <div className="text-xs bg-foreground text-background rounded-md px-2 py-1 w-fit ml-auto mt-2 cursor-pointer">
                             from leads total
                         </div>
-                    </ShadTooltipTrigger>
-                    <ShadTooltipContent>
+                    </TooltipTrigger>
+                    <TooltipContent>
                         <p>Total value from all converted leads.</p>
-                    </ShadTooltipContent>
+                    </TooltipContent>
                 </ShadTooltip>
-            </ShadTooltipProvider>
+            </TooltipProvider>
           </div>
         </div>
         <div className="flex justify-center space-x-2 mt-6">
