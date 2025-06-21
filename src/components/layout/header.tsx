@@ -4,9 +4,11 @@ import TopHeader from '../Dashboard/TopHeader';
 
 interface HeaderProps {
   className?: string;
+  onToggleSidebar: () => void;
+  isCollapsed: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({ className }) => {
+const Header: React.FC<HeaderProps> = ({ className, onToggleSidebar, isCollapsed }) => {
   return (
     // Wrapper for TopHeader to control layout within the main grid column.
     // TopHeader itself contains the <header> tag and its own styling (bg, border).
@@ -16,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
         className
       )}
     >
-      <TopHeader />
+      <TopHeader onToggleSidebar={onToggleSidebar} isCollapsed={isCollapsed} />
     </div>
   );
 };
