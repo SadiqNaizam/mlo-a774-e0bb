@@ -6,12 +6,22 @@ import {
     DropdownMenuItem, 
     DropdownMenuTrigger 
 } from '@/components/ui/dropdown-menu';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, PanelLeftOpen, PanelLeftClose } from 'lucide-react';
 
-const TopHeader: React.FC = () => {
+interface TopHeaderProps {
+    onToggleSidebar: () => void;
+    isCollapsed: boolean;
+}
+
+const TopHeader: React.FC<TopHeaderProps> = ({ onToggleSidebar, isCollapsed }) => {
   return (
     <header className="flex items-center justify-between w-full h-full px-6 py-4 bg-background border-b">
-      <h1 className="text-3xl font-bold text-foreground">Dashboard</h1>
+        <div className="flex items-center gap-4">
+            <Button variant="ghost" size="icon" onClick={onToggleSidebar}>
+                {isCollapsed ? <PanelLeftOpen className="w-5 h-5" /> : <PanelLeftClose className="w-5 h-5" />}
+            </Button>
+            <h1 className="text-3xl font-bold text-foreground">Dashboard</h1>
+        </div>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button>
